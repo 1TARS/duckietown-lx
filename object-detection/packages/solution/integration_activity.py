@@ -51,7 +51,7 @@ def filter_by_scores(score: float) -> bool:
     # Right now, this returns True for every object's confidence
     # TODO: Change this to filter the scores, or not at all
     # (returning True for all of them might be the right thing to do!)
-    if(score < 0.20): return False
+    if(score < 0.40): return False
     return True
 
 
@@ -61,8 +61,8 @@ def filter_by_bboxes(bbox: Tuple[int, int, int, int]) -> bool:
         bbox: is the bounding box of a prediction, in xyxy format
                 This means the shape of bbox is (leftmost x pixel, topmost y, rightmost x, bottommost y)
     """
-    x_width = 80
-    y_width = 80
+    x_width = 134
+    y_width = 134
 
     # TODO: Like in the other cases, return False if the bbox should not be considered.
     if (abs(bbox[0] - bbox[2]) < x_width and abs(bbox[1]- bbox[3]) < y_width): return False
